@@ -13,7 +13,7 @@ interface HeroProps {
 export function Hero({ audience }: HeroProps) {
   const headline = audience?.headline ?? defaultHeroCopy.headline;
   const subheadline = audience?.subheadline ?? defaultHeroCopy.subheadline;
-  const badge = audience?.badge ?? "Für Krankengeld, Rente, Reha & Arbeitsagentur";
+  const badge = audience?.badge ?? "Spezialisierte Verständnishilfe – kein ChatGPT-Ersatz";
   const source = audience?.slug ?? "general";
 
   return (

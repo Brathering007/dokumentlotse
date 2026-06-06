@@ -36,8 +36,9 @@ export const solutionSteps: SolutionStep[] = [
   },
   {
     step: 2,
-    title: "KI erklärt den Inhalt",
-    description: "Kompliziertes Behördendeutsch wird in verständliche Sprache übersetzt.",
+    title: "Spezialisierte Erklärung",
+    description:
+      "Kein allgemeines KI-Tool – sondern Erklärungen für typische Bescheide von Krankenkasse, Rente, Reha und Arbeitsagentur.",
   },
   {
     step: 3,

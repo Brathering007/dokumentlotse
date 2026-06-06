@@ -7,7 +7,7 @@ export function Comparison() {
   return (
     <Section id="vergleich" background="light">
       <SectionHeader
-        title="DokumentenLotse vs. ChatGPT, Zettel & Co."
+        title="DokumentenLotse vs. allgemeine KI"
         subtitle={comparisonIntro}
       />
 

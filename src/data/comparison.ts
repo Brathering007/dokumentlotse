@@ -54,4 +54,4 @@ export const comparisonRows: ComparisonRow[] = [
 ];
 
 export const comparisonIntro =
-  "Allgemeine KI kann Texte zusammenfassen – versteht aber nicht zuverlässig, was ein Krankenkassen- oder Rentenbescheid für dich bedeutet. DokumentenLotse soll genau diese Lücke schließen.";
+  "ChatGPT kann Texte zusammenfassen – DokumentenLotse wird gezielt für deutsche Sozialversicherungs-Briefe gebaut: mit Fristen, Aufgaben und Fokus statt Allzweck-KI.";

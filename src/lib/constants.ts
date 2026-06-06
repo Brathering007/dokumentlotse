@@ -3,4 +3,4 @@ export const DISCLAIMER =
 
 export const SITE_NAME = "DokumentenLotse";
 export const SITE_DESCRIPTION =
-  "DokumentenLotse erklärt Briefe von Krankenkasse, Rentenversicherung, Reha, Arbeitsagentur und Erwerbsminderung in einfachem Deutsch – mit Fristen und nächsten Schritten.";
+  "Spezialisierte Verständnishilfe für Krankenkasse, Reha, Rentenversicherung, Erwerbsminderung und Arbeitsagentur – nicht für alle Dokumente, bewusst fokussiert statt allgemeiner KI.";

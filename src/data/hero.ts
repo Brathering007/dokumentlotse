@@ -1,8 +1,8 @@
 export const heroTrustItems = [
-  "Keine Rechtsberatung",
-  "Verständliche Erklärungen",
-  "Fokus: Krankenkasse, Reha, Rente & Arbeitsagentur",
-  "Datenschutzfreundlicher Ansatz",
+  "Keine Rechtsberatung – nur Verständnishilfe",
+  "Spezialisiert auf Sozialversicherungs-Briefe",
+  "Krankenkasse · Reha · Rente · Erwerbsminderung · Arbeitsagentur",
+  "Datenschutzfreundlich geplant – nicht für alle Dokumente",
 ];
 
 export const familiarSituations = [
@@ -14,11 +14,11 @@ export const familiarSituations = [
   "Behördendeutsch macht dich unsicher, ob dir Geld oder Leistungen entgehen.",
 ];
 
-/** Gewählte Hero-Variante: B (emotional + zielgruppenspezifisch) */
+/** Gewählte Hero-Variante: B + verschärfte Positionierung */
 export const defaultHeroCopy = {
   headline: "Nie wieder rätseln, was die Krankenkasse von dir will.",
   subheadline:
-    "DokumentenLotse erklärt Bescheide von Krankenkasse, Rentenversicherung, Reha und Arbeitsagentur in unter 30 Sekunden – verständlich, mit Fristen und nächsten Schritten.",
+    "DokumentenLotse ist keine allgemeine KI – sondern spezialisierte Verständnishilfe für Krankenkasse, Reha, Rentenversicherung, Erwerbsminderung und Arbeitsagentur. Verständlich erklärt, mit Fristen und nächsten Schritten.",
   cta: "Kostenlos vormerken",
 };
 
