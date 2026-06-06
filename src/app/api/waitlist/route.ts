@@ -1,16 +1,11 @@
 import { NextResponse } from "next/server";
 import { addToWaitlist } from "@/lib/waitlist";
-import { letterFrequencyOptions } from "@/data/waitlist-options";
-import type { DocumentCategory, LetterFrequency } from "@/types";
-
-const VALID_CATEGORIES: DocumentCategory[] = [
-  "Krankenkasse",
-  "Arbeitsagentur",
-  "Rentenversicherung",
-  "Reha",
-  "Versicherung",
-  "Sonstiges",
-];
+import { documentCategories } from "@/data/examples";
+import {
+  letterFrequencyOptions,
+  paymentWillingnessOptions,
+} from "@/data/waitlist-options";
+import type { DocumentCategory, LetterFrequency, PaymentWillingness } from "@/types";
 
 export async function POST(request: Request) {
   try {
@@ -18,15 +13,23 @@ export async function POST(request: Request) {
       email?: string;
       documentInterest?: string;
       letterFrequency?: string;
+      paymentWillingness?: string;
       source?: string;
     };
 
     const email = body.email ?? "";
-    const documentInterest = VALID_CATEGORIES.includes(body.documentInterest as DocumentCategory)
+    const documentInterest = documentCategories.includes(body.documentInterest as DocumentCategory)
       ? (body.documentInterest as DocumentCategory)
       : undefined;
-    const letterFrequency = letterFrequencyOptions.includes(body.letterFrequency as LetterFrequency)
+    const letterFrequency = letterFrequencyOptions.includes(
+      body.letterFrequency as LetterFrequency
+    )
       ? (body.letterFrequency as LetterFrequency)
+      : undefined;
+    const paymentWillingness = paymentWillingnessOptions.includes(
+      body.paymentWillingness as PaymentWillingness
+    )
+      ? (body.paymentWillingness as PaymentWillingness)
       : undefined;
     const source = body.source?.trim().slice(0, 50) || undefined;
 
@@ -34,6 +37,7 @@ export async function POST(request: Request) {
       email,
       documentInterest,
       letterFrequency,
+      paymentWillingness,
       source,
     });
 

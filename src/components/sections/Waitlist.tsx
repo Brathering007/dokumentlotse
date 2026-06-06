@@ -2,13 +2,16 @@
 
 import { useRef, useState, type FormEvent } from "react";
 import { documentCategories } from "@/data/examples";
-import { letterFrequencyOptions } from "@/data/waitlist-options";
+import {
+  letterFrequencyOptions,
+  paymentWillingnessOptions,
+} from "@/data/waitlist-options";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Disclaimer } from "@/components/ui/Disclaimer";
 import { Section, SectionHeader } from "@/components/ui/Section";
 import { trackEvent } from "@/lib/analytics";
-import type { DocumentCategory, LetterFrequency } from "@/types";
+import type { DocumentCategory, LetterFrequency, PaymentWillingness } from "@/types";
 
 interface WaitlistProps {
   defaultDocumentInterest?: DocumentCategory;
@@ -21,6 +24,7 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
     defaultDocumentInterest ?? ""
   );
   const [letterFrequency, setLetterFrequency] = useState<LetterFrequency | "">("");
+  const [paymentWillingness, setPaymentWillingness] = useState<PaymentWillingness | "">("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const hasTrackedStart = useRef(false);
@@ -29,6 +33,13 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
     if (hasTrackedStart.current) return;
     hasTrackedStart.current = true;
     trackEvent({ name: "waitlist_start", properties: { source } });
+  }
+
+  function resetForm() {
+    setEmail("");
+    if (!defaultDocumentInterest) setDocumentInterest("");
+    setLetterFrequency("");
+    setPaymentWillingness("");
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -42,6 +53,7 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
         source,
         documentInterest: documentInterest || undefined,
         letterFrequency: letterFrequency || undefined,
+        paymentWillingness: paymentWillingness || undefined,
       },
     });
 
@@ -53,6 +65,7 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
           email,
           documentInterest: documentInterest || undefined,
           letterFrequency: letterFrequency || undefined,
+          paymentWillingness: paymentWillingness || undefined,
           source,
         }),
       });
@@ -69,9 +82,7 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
       setStatus("success");
       setMessage(data.message ?? "Du bist vorgemerkt!");
       trackEvent({ name: "waitlist_success", properties: { source } });
-      setEmail("");
-      if (!defaultDocumentInterest) setDocumentInterest("");
-      setLetterFrequency("");
+      resetForm();
     } catch {
       setStatus("error");
       setMessage("Verbindungsfehler. Bitte versuche es später erneut.");
@@ -83,7 +94,7 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
     <Section id="warteliste" background="white">
       <SectionHeader
         title="Jetzt kostenlos vormerken"
-        subtitle="Sei unter den Ersten, wenn DokumentenLotse startet – und hilf uns, die richtigen Funktionen zuerst zu bauen."
+        subtitle="Hilf mit, DokumentenLotse für Krankenkasse, Rente, Reha und Arbeitsagentur zu bauen – und sichere dir Frühzugang."
       />
 
       <Card className="mx-auto max-w-lg">
@@ -122,7 +133,7 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
 
             <fieldset>
               <legend className="mb-3 text-base font-semibold text-navy-900">
-                Welche Dokumente bereiten dir die meisten Schwierigkeiten?{" "}
+                Welche Art von Dokument bereitet dir Probleme?{" "}
                 <span className="font-normal text-navy-500">(optional)</span>
               </legend>
               <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -170,6 +181,35 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
                       value={option}
                       checked={letterFrequency === option}
                       onChange={() => setLetterFrequency(option)}
+                      className="sr-only"
+                    />
+                    {option}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend className="mb-3 text-base font-semibold text-navy-900">
+                Würdest du für eine Lösung bezahlen?{" "}
+                <span className="font-normal text-navy-500">(optional, hilft uns bei der Planung)</span>
+              </legend>
+              <div className="grid gap-2">
+                {paymentWillingnessOptions.map((option) => (
+                  <label
+                    key={option}
+                    className={`cursor-pointer rounded-xl border-2 px-4 py-3 text-sm font-medium transition-colors ${
+                      paymentWillingness === option
+                        ? "border-navy-700 bg-navy-50 text-navy-900"
+                        : "border-navy-200 text-navy-600 hover:border-navy-300"
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="paymentWillingness"
+                      value={option}
+                      checked={paymentWillingness === option}
+                      onChange={() => setPaymentWillingness(option)}
                       className="sr-only"
                     />
                     {option}

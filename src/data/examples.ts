@@ -44,6 +44,6 @@ export const documentCategories = [
   "Arbeitsagentur",
   "Rentenversicherung",
   "Reha",
-  "Versicherung",
+  "Erwerbsminderung",
   "Sonstiges",
 ] as const;

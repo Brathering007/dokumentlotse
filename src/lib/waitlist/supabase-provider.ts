@@ -32,6 +32,7 @@ export async function addToWaitlistSupabase(signup: WaitlistSignup): Promise<Add
       email: validation.normalizedEmail,
       document_interest: signup.documentInterest ?? null,
       letter_frequency: signup.letterFrequency ?? null,
+      payment_willingness: signup.paymentWillingness ?? null,
       source: signup.source ?? null,
     })
     .select("id, email, created_at")

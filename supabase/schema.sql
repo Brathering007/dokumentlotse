@@ -6,6 +6,7 @@ create table if not exists public.waitlist (
   email text not null unique,
   document_interest text,
   letter_frequency text,
+  payment_willingness text,
   source text,
   created_at timestamptz not null default now()
 );

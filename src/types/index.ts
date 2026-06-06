@@ -3,7 +3,7 @@ export type DocumentCategory =
   | "Arbeitsagentur"
   | "Rentenversicherung"
   | "Reha"
-  | "Versicherung"
+  | "Erwerbsminderung"
   | "Sonstiges";
 
 export type LetterFrequency =
@@ -12,11 +12,19 @@ export type LetterFrequency =
   | "Mehrmals pro Monat"
   | "Wöchentlich oder öfter";
 
+export type PaymentWillingness =
+  | "Ja, wenn es mein Problem löst"
+  | "Ja, bis 5 € pro Monat"
+  | "Ja, bis 10 € pro Monat"
+  | "Nur wenn kostenlos"
+  | "Nein / noch unsicher";
+
 export interface WaitlistEntry {
   id: string;
   email: string;
   documentInterest?: DocumentCategory;
   letterFrequency?: LetterFrequency;
+  paymentWillingness?: PaymentWillingness;
   source?: string;
   createdAt: string;
 }
@@ -25,6 +33,7 @@ export interface WaitlistSignup {
   email: string;
   documentInterest?: DocumentCategory;
   letterFrequency?: LetterFrequency;
+  paymentWillingness?: PaymentWillingness;
   source?: string;
 }
 

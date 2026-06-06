@@ -12,6 +12,7 @@ interface JsonWaitlistEntry {
   email: string;
   documentInterest?: WaitlistSignup["documentInterest"];
   letterFrequency?: WaitlistSignup["letterFrequency"];
+  paymentWillingness?: WaitlistSignup["paymentWillingness"];
   source?: string;
   createdAt: string;
 }
@@ -51,6 +52,7 @@ export async function addToWaitlistJson(signup: WaitlistSignup): Promise<AddToWa
     email: validation.normalizedEmail,
     documentInterest: signup.documentInterest,
     letterFrequency: signup.letterFrequency,
+    paymentWillingness: signup.paymentWillingness,
     source: signup.source,
     createdAt: new Date().toISOString(),
   };

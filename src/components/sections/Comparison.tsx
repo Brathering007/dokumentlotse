@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { comparisonRows } from "@/data/comparison";
+import { comparisonRows, comparisonIntro } from "@/data/comparison";
 import { CtaLink } from "@/components/ui/CtaLink";
 import { Section, SectionHeader } from "@/components/ui/Section";
 
@@ -7,8 +7,8 @@ export function Comparison() {
   return (
     <Section id="vergleich" background="light">
       <SectionHeader
-        title="DokumentenLotse vs. typische Dokumentenerklärer"
-        subtitle="Unser geplanter Fokus: nicht alles erklären – sondern Behördenpost wirklich verständlich machen."
+        title="DokumentenLotse vs. ChatGPT, Zettel & Co."
+        subtitle={comparisonIntro}
       />
 
       <div className="overflow-x-auto rounded-2xl border border-navy-100 bg-white">

@@ -7,48 +7,51 @@ export interface ComparisonRow {
 
 export const comparisonRows: ComparisonRow[] = [
   {
+    feature: "Spezialisierung",
+    dokumentenlotse: "Krankenkasse, Rente, Reha, Arbeitsagentur, Erwerbsminderung",
+    typical: "Allgemeine Dokumenten-KI oder ChatGPT",
+    highlight: true,
+  },
+  {
     feature: "Einfache Sprache",
-    dokumentenlotse: "Geplant als Kernfunktion – kein Behördendeutsch",
-    typical: "Oft wörtliche Zusammenfassung oder Fachbegriffe bleiben",
+    dokumentenlotse: "Kernfunktion – kein Behördendeutsch",
+    typical: "Oft Fachbegriffe bleiben erhalten",
     highlight: true,
   },
   {
     feature: "Fristen erkennen",
-    dokumentenlotse: "Fristen werden hervorgehoben und erklärt",
-    typical: "Selten automatisch erkannt",
+    dokumentenlotse: "Fristen hervorgehoben und erklärt",
+    typical: "ChatGPT erkennt Fristen nicht zuverlässig",
     highlight: true,
   },
   {
     feature: "Aufgabenlisten",
     dokumentenlotse: "Geplant: Was du als Nächstes tun musst",
-    typical: "Meist nicht enthalten",
+    typical: "Selbst aus Text ableiten",
     highlight: true,
   },
   {
-    feature: "Reha-/Renten-Spezialisierung",
-    dokumentenlotse: "Fokus auf Sozialversicherung & Behördenpost",
-    typical: "Allgemeine Dokumenten-KI ohne Spezialisierung",
-    highlight: true,
+    feature: "Zettel / Angehörige fragen",
+    dokumentenlotse: "Sofort verfügbar, jederzeit wiederholbar",
+    typical: "Zeitaufwendig, nicht immer verfügbar",
   },
   {
     feature: "Familienmodus",
-    dokumentenlotse: "Geplant für Angehörige, die mithelfen",
-    typical: "Einzelnutzer-Fokus",
+    dokumentenlotse: "Geplant für Angehörige",
+    typical: "Nicht vorgesehen",
     highlight: true,
   },
   {
     feature: "Rechtsberatung",
-    dokumentenlotse: "Nein – nur Verständnishilfe (transparent)",
+    dokumentenlotse: "Nein – transparent als Verständnishilfe",
     typical: "Unklar oder irreführend",
   },
   {
     feature: "Datenschutz",
     dokumentenlotse: "EU-Hosting, minimale Speicherung geplant",
-    typical: "Oft unklar oder US-Server",
-  },
-  {
-    feature: "Barrierefreiheit",
-    dokumentenlotse: "Mobile First, große Schrift, hoher Kontrast",
-    typical: "Standard-Webdesign",
+    typical: "US-Server, unklare Speicherfristen",
   },
 ];
+
+export const comparisonIntro =
+  "Allgemeine KI kann Texte zusammenfassen – versteht aber nicht zuverlässig, was ein Krankenkassen- oder Rentenbescheid für dich bedeutet. DokumentenLotse soll genau diese Lücke schließen.";

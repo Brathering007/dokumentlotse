@@ -7,12 +7,17 @@ export const faqItems: FaqItem[] = [
   {
     question: "Ist die Nutzung kostenlos?",
     answer:
-      "Die Anmeldung zur Warteliste ist kostenlos. Über den geplanten Preis informieren wir dich transparent, bevor du etwas zahlst. Für die Testphase gibt es Frühzugang für Wartelisten-Mitglieder.",
+      "Die Anmeldung zur Warteliste ist kostenlos. Über den geplanten Preis informieren wir dich transparent, bevor du etwas zahlst. Wartelisten-Mitglieder erhalten Frühzugang.",
+  },
+  {
+    question: "Was kostet die App später?",
+    answer:
+      "Das Modell ist noch in Planung. Wir testen gerade, was fair ist – z. B. ein günstiges Monatsabo statt hoher Einmalpreise. Deine Angabe zur Zahlungsbereitschaft hilft uns dabei (freiwillig).",
   },
   {
     question: "Werden meine Dokumente gespeichert?",
     answer:
-      "In der geplanten App soll dein Dokument nur so lange verarbeitet werden, wie nötig. Langfristige Speicherung ist nicht das Ziel. Details werden vor dem Start klar in der Datenschutzerklärung beschrieben.",
+      "In der geplanten App soll dein Dokument nur so lange verarbeitet werden, wie nötig. Langfristige Speicherung ist nicht das Ziel. Details werden vor dem Start in der Datenschutzerklärung beschrieben.",
   },
   {
     question: "Ersetzt DokumentenLotse einen Anwalt?",
@@ -22,46 +27,61 @@ export const faqItems: FaqItem[] = [
   {
     question: "Welche Dokumente werden unterstützt?",
     answer:
-      "Der Fokus liegt auf Behörden- und Sozialversicherungspost: Krankenkasse, Arbeitsagentur, Rentenversicherung, Reha, Versicherungen und ähnliche Schreiben. Weitere Bereiche folgen schrittweise.",
+      "Unser Fokus: Krankenkasse, Krankengeld, Rentenversicherung, Reha, Erwerbsminderung und Arbeitsagentur. Nicht Finanzamt, Mietrecht oder allgemeine Verträge.",
+  },
+  {
+    question: "Warum nicht einfach ChatGPT?",
+    answer:
+      "Allgemeine KI kennt nicht die typischen Fristen, Formulierungen und Abläufe bei Krankenkasse, Rente oder Reha. DokumentenLotse soll spezialisiert erklären – mit Fokus auf deutsche Sozialversicherungsbriefe.",
   },
   {
     question: "Wie funktioniert DokumentenLotse?",
     answer:
-      "Du lädst ein Foto oder PDF deines Briefes hoch. DokumentenLotse erklärt den Inhalt in einfacher Sprache und hebt Fristen sowie wichtige Aufgaben hervor. Aktuell ist das eine Vorschau – die App ist in Entwicklung.",
+      "Geplant: Du lädst ein Foto oder PDF hoch. DokumentenLotse erklärt den Inhalt in einfacher Sprache und hebt Fristen sowie Aufgaben hervor. Aktuell ist das eine Vorschau – die App ist in Entwicklung.",
   },
   {
     question: "Ist meine E-Mail-Adresse sicher?",
     answer:
-      "Ja. Deine E-Mail wird nur für die Warteliste und Informationen zum Start verwendet. Du kannst deine Einwilligung jederzeit widerrufen. Details findest du in unserer Datenschutzerklärung.",
+      "Ja. Deine E-Mail wird nur für die Warteliste und Informationen zum Start verwendet. Du kannst deine Einwilligung jederzeit widerrufen. Details in der Datenschutzerklärung.",
+  },
+  {
+    question: "Werden Daten in den USA gespeichert?",
+    answer:
+      "Wir planen EU-Hosting (z. B. Supabase Frankfurt) und minimale Datenspeicherung. Konkrete Details werden vor dem Start veröffentlicht.",
   },
   {
     question: "Wann startet DokumentenLotse?",
     answer:
-      "Wir befinden uns in der Testphase. Wartelisten-Mitglieder erfahren als Erste vom Start und erhalten Frühzugang. Je mehr Feedback wir sammeln, desto schneller können wir starten.",
+      "Wir sind in der Testphase. Wartelisten-Mitglieder erfahren als Erste vom Start. Je mehr Feedback wir sammeln, desto gezielter bauen wir.",
   },
   {
     question: "Brauche ich technische Vorkenntnisse?",
     answer:
-      "Nein. DokumentenLotse ist für Smartphone und einfache Bedienung konzipiert – große Schrift, klare Sprache, wenige Schritte.",
+      "Nein. DokumentenLotse ist für Smartphone konzipiert – große Schrift, klare Sprache, wenige Schritte.",
   },
   {
     question: "Können Angehörige mithelfen?",
     answer:
-      "Ja, das ist ein wichtiger Anwendungsfall. Ein geplanter Familienmodus soll es ermöglichen, Briefe gemeinsam zu verstehen und vorzubereiten.",
+      "Ja – ein wichtiger Anwendungsfall. Ein geplanter Familienmodus soll gemeinsames Verstehen und Vorbereiten ermöglichen.",
   },
   {
     question: "Was passiert nach der Wartelisten-Anmeldung?",
     answer:
-      "Du erhältst eine Bestätigung. Wir informieren dich per E-Mail über den Fortschritt und den Start. Optional kannst du uns sagen, welche Dokumente dir am wichtigsten sind – das hilft uns bei der Entwicklung.",
+      "Du erhältst eine Bestätigung. Wir informieren dich per E-Mail über Fortschritt und Start. Optional kannst du uns sagen, welche Briefe dir am wichtigsten sind.",
   },
   {
-    question: "Funktioniert DokumentenLotse auch mit handschriftlichen Briefen?",
+    question: "Kann ich meine Anmeldung widerrufen?",
     answer:
-      "Geplant ist die Verarbeitung von gedruckten Briefen und PDFs. Handschriftliche Dokumente sind schwieriger – das prüfen wir in späteren Versionen.",
+      "Ja, jederzeit per E-Mail an uns (siehe Kontaktseite). Wir löschen deine Wartelisten-Daten auf Anfrage.",
+  },
+  {
+    question: "Funktioniert es mit handschriftlichen Briefen?",
+    answer:
+      "Geplant ist die Verarbeitung von gedruckten Briefen und PDFs. Handschrift ist schwieriger – das prüfen wir später.",
   },
   {
     question: "Warum soll ich mich jetzt vormerken?",
     answer:
-      "Je früher du dich einträgst, desto eher bist du beim Start dabei. Dein Feedback zu Dokumentenarten und Häufigkeit hilft uns, die richtigen Funktionen zuerst zu bauen.",
+      "Je früher du dabei bist, desto eher erhältst du Frühzugang. Dein Feedback zu Dokumenten, Häufigkeit und Zahlungsbereitschaft hilft uns, das Richtige zuerst zu bauen.",
   },
 ];

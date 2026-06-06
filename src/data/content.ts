@@ -2,29 +2,29 @@ import type { ProblemItem, RoadmapVersion, SolutionStep, TrustPoint } from "@/ty
 
 export const problemItems: ProblemItem[] = [
   {
-    title: "Unverständliche Briefe",
+    title: "Krankenkassen-Briefe",
     description:
-      "Behördenpost ist oft lang, kompliziert formuliert und schwer zu durchschauen – besonders unter Zeitdruck.",
+      "Krankengeld, Atteste, Nachforderungen – du verstehst nicht, was fehlt und ob Geld gefährdet ist.",
   },
   {
-    title: "Behördendeutsch",
+    title: "Rentenversicherung & Erwerbsminderung",
     description:
-      "Fachbegriffe, Paragraphen und Formulierungen machen es schwer, den eigentlichen Inhalt zu erkennen.",
+      "Bescheide voller Fachbegriffe. Ein Missverständnis kann teuer werden.",
   },
   {
-    title: "Angst vor Fristen",
+    title: "Reha-Verfahren",
     description:
-      "Viele Briefe enthalten Fristen. Wer sie übersieht, riskiert Nachteile oder verzögerte Leistungen.",
+      "Anträge, Bescheide, Unterlagen – viele Schritte, wenig klare Erklärung.",
   },
   {
-    title: "Unsicherheit beim Handeln",
+    title: "Arbeitsagentur-Schreiben",
     description:
-      "Nach dem Lesen bleibt oft die Frage: Was bedeutet das für mich – und was muss ich jetzt tun?",
+      "Mitwirkungspflichten, Termine, Nachweise – Angst, Leistungen zu verlieren.",
   },
   {
-    title: "Angehörige müssen helfen",
+    title: "Fristen übersehen",
     description:
-      "Familienmitglieder werden oft gebeten, Briefe zu erklären – zeitaufwendig und emotional belastend.",
+      "Das Datum steht irgendwo im Fließtext. Wer zu spät reagiert, hat Nachteile.",
   },
 ];
 

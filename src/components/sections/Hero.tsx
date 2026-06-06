@@ -8,15 +8,16 @@ interface HeroProps {
   audience?: AudienceConfig;
 }
 
-const defaultHeadline = "Behördenbrief erhalten – und nicht verstanden?";
+const defaultHeadline =
+  "Brief von Krankenkasse, Rente oder Reha – und du verstehst nur die Hälfte?";
 const defaultSubheadline =
-  "DokumentenLotse erklärt komplizierte Post von Krankenkasse, Rentenversicherung, Reha und Arbeitsagentur in klare, einfache Sprache – mit Fristen und nächsten Schritten.";
+  "DokumentenLotse erklärt Schreiben von Krankenkasse, Rentenversicherung, Reha, Arbeitsagentur und Erwerbsminderung in einfachem Deutsch – mit Fristen und nächsten Schritten.";
 
 export function Hero({ audience }: HeroProps) {
   const headline = audience?.headline ?? defaultHeadline;
   const subheadline = audience?.subheadline ?? defaultSubheadline;
-  const badge = audience?.badge ?? "Verständnishilfe für Behördenpost";
-  const ctaText = audience?.ctaText ?? "Kostenlos vormerken";
+  const badge = audience?.badge ?? "Für Krankengeld, Rente, Reha & Arbeitsagentur";
+  const ctaText = audience?.ctaText ?? "Kostenlos vormerken – ich will Klarheit";
 
   return (
     <section className="bg-gradient-to-b from-navy-50 to-white px-5 pb-16 pt-12 sm:px-6 sm:pb-20 sm:pt-16">

@@ -10,8 +10,8 @@ export function Problem({ highlight }: ProblemProps) {
   return (
     <Section id="problem" background="white">
       <SectionHeader
-        title="Kennst du das?"
-        subtitle="Behördenpost kann überfordern – besonders wenn es um Gesundheit, Rente oder Arbeit geht."
+        title="Betroffen? Du bist nicht allein."
+        subtitle="DokumentenLotse richtet sich gezielt an diese Briefe – nicht an Steuerbescheide oder Mietverträge."
       />
       {highlight && (
         <p className="mb-6 rounded-xl border border-accent-200 bg-accent-50 px-4 py-3 text-center text-sm font-medium text-accent-900">
