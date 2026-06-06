@@ -100,7 +100,7 @@ export const trustPoints: TrustPoint[] = [
   {
     title: "Keine Rechtsberatung",
     description:
-      "DokumentenLotse AI erklärt Inhalte – ersetzt aber keine Anwältin, keinen Anwalt und keine behördliche Beratung.",
+      "DokumentenLotse erklärt Inhalte – ersetzt aber keine Anwältin, keinen Anwalt und keine behördliche Beratung.",
   },
   {
     title: "Keine verbindlichen Entscheidungen",

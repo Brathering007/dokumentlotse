@@ -5,7 +5,7 @@ export function Solution() {
   return (
     <Section id="loesung" background="light">
       <SectionHeader
-        title="So soll DokumentenLotse AI helfen"
+        title="So soll DokumentenLotse helfen"
         subtitle="Ein einfacher Ablauf – als Vorschau für die geplante App."
       />
       <ol className="space-y-6">

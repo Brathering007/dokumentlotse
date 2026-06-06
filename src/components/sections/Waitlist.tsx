@@ -51,7 +51,7 @@ export function Waitlist() {
     <Section id="warteliste" background="white">
       <SectionHeader
         title="Kostenlos vormerken"
-        subtitle="Trag dich in die Warteliste ein und erfahre als Erste:r, wenn DokumentenLotse AI startet."
+        subtitle="Trag dich in die Warteliste ein und erfahre als Erste:r, wenn DokumentenLotse startet."
       />
 
       <Card className="mx-auto max-w-lg">

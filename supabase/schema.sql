@@ -1,4 +1,4 @@
--- DokumentenLotse AI: Wartelisten-Tabelle
+-- DokumentenLotse: Wartelisten-Tabelle
 -- In Supabase: SQL Editor → New query → ausführen
 
 create table if not exists public.waitlist (
@@ -17,4 +17,4 @@ alter table public.waitlist enable row level security;
 -- Keine öffentlichen Policies: Zugriff nur über Service Role Key in der API
 -- (Kein direkter Client-Zugriff von außen)
 
-comment on table public.waitlist is 'Warteliste für DokumentenLotse AI MVP';
+comment on table public.waitlist is 'Warteliste für DokumentenLotse MVP';

@@ -1,8 +1,8 @@
-# DokumentenLotse AI
+# DokumentenLotse
 
 Landingpage zur Validierung der Geschäftsidee: Eine KI, die komplizierte Behörden-, Renten-, Krankenkassen-, Reha- und Versicherungsdokumente in einfache Sprache übersetzt.
 
-**Hinweis:** Dies ist ein MVP zur Ideenvalidierung – keine Rechtsberatung. DokumentenLotse AI dient ausschließlich als Verständnishilfe.
+**Hinweis:** Dies ist ein MVP zur Ideenvalidierung – keine Rechtsberatung. DokumentenLotse dient ausschließlich als Verständnishilfe.
 
 ## Tech-Stack
 
@@ -142,7 +142,7 @@ Mögliche Werte für `documentInterest` (optional): Krankenkasse, Arbeitsagentur
 
 ## Rechtlicher Hinweis
 
-> Keine Rechtsberatung. DokumentenLotse AI dient ausschließlich als Verständnishilfe und ersetzt keine professionelle Beratung.
+> Keine Rechtsberatung. DokumentenLotse dient ausschließlich als Verständnishilfe und ersetzt keine professionelle Beratung.
 
 **Vor der öffentlichen Testphase:**
 - Impressum-Platzhalter mit echten Daten ersetzen

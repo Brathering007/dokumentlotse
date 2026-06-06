@@ -14,7 +14,7 @@ export function ExampleAnalyses() {
     <Section id="beispiele" background="white">
       <SectionHeader
         title="Beispielanalysen"
-        subtitle="So könnte DokumentenLotse AI komplizierte Briefe erklären – mit fiktiven Demo-Texten."
+        subtitle="So könnte DokumentenLotse komplizierte Briefe erklären – mit fiktiven Demo-Texten."
       />
 
       <div className="mb-6 flex flex-wrap gap-2" role="tablist" aria-label="Beispielauswahl">
