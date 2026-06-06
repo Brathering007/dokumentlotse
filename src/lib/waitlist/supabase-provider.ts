@@ -1,5 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
-import type { DocumentCategory } from "@/types";
+import type { WaitlistSignup } from "@/types";
 import type { AddToWaitlistResult } from "./types";
 import { validateWaitlistInput } from "./types";
 
@@ -18,11 +18,8 @@ function getSupabaseAdmin() {
   });
 }
 
-export async function addToWaitlistSupabase(
-  email: string,
-  documentInterest?: DocumentCategory
-): Promise<AddToWaitlistResult> {
-  const validation = validateWaitlistInput(email);
+export async function addToWaitlistSupabase(signup: WaitlistSignup): Promise<AddToWaitlistResult> {
+  const validation = validateWaitlistInput(signup.email);
   if (!validation.ok) {
     return { success: false, error: validation.error };
   }
@@ -33,7 +30,9 @@ export async function addToWaitlistSupabase(
     .from("waitlist")
     .insert({
       email: validation.normalizedEmail,
-      document_interest: documentInterest ?? null,
+      document_interest: signup.documentInterest ?? null,
+      letter_frequency: signup.letterFrequency ?? null,
+      source: signup.source ?? null,
     })
     .select("id, email, created_at")
     .single();

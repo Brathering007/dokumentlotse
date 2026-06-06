@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { trackCtaClick } from "@/lib/analytics";
 import { SITE_NAME } from "@/lib/constants";
 
 export function Header() {
@@ -16,6 +19,7 @@ export function Header() {
         </Link>
         <Link
           href="/#warteliste"
+          onClick={() => trackCtaClick("header", "Frühzugang")}
           className="rounded-lg bg-navy-700 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-navy-800"
         >
           Frühzugang

@@ -1,4 +1,4 @@
-import type { DocumentCategory } from "@/types";
+import type { WaitlistSignup } from "@/types";
 import { addToWaitlistJson, getWaitlistCountJson } from "./json-provider";
 import { addToWaitlistSupabase, getWaitlistCountSupabase } from "./supabase-provider";
 import type { AddToWaitlistResult, WaitlistProvider } from "./types";
@@ -7,17 +7,14 @@ import { getWaitlistProvider } from "./types";
 export type { AddToWaitlistResult, WaitlistProvider };
 export { getWaitlistProvider };
 
-export async function addToWaitlist(
-  email: string,
-  documentInterest?: DocumentCategory
-): Promise<AddToWaitlistResult> {
+export async function addToWaitlist(signup: WaitlistSignup): Promise<AddToWaitlistResult> {
   const provider = getWaitlistProvider();
 
   if (provider === "supabase") {
-    return addToWaitlistSupabase(email, documentInterest);
+    return addToWaitlistSupabase(signup);
   }
 
-  return addToWaitlistJson(email, documentInterest);
+  return addToWaitlistJson(signup);
 }
 
 export async function getWaitlistCount(): Promise<number> {

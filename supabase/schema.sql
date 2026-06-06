@@ -5,6 +5,8 @@ create table if not exists public.waitlist (
   id uuid primary key default gen_random_uuid(),
   email text not null unique,
   document_interest text,
+  letter_frequency text,
+  source text,
   created_at timestamptz not null default now()
 );
 

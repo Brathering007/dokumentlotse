@@ -6,11 +6,26 @@ export type DocumentCategory =
   | "Versicherung"
   | "Sonstiges";
 
+export type LetterFrequency =
+  | "Selten (1–2× pro Jahr)"
+  | "Monatlich"
+  | "Mehrmals pro Monat"
+  | "Wöchentlich oder öfter";
+
 export interface WaitlistEntry {
   id: string;
   email: string;
   documentInterest?: DocumentCategory;
+  letterFrequency?: LetterFrequency;
+  source?: string;
   createdAt: string;
+}
+
+export interface WaitlistSignup {
+  email: string;
+  documentInterest?: DocumentCategory;
+  letterFrequency?: LetterFrequency;
+  source?: string;
 }
 
 export interface ExampleAnalysis {
@@ -43,4 +58,15 @@ export interface SolutionStep {
 export interface TrustPoint {
   title: string;
   description: string;
+}
+
+export interface AudienceConfig {
+  slug: string;
+  label: string;
+  headline: string;
+  subheadline: string;
+  badge: string;
+  problemHighlight: string;
+  documentInterest: DocumentCategory;
+  ctaText: string;
 }

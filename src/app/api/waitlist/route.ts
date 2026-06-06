@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { addToWaitlist } from "@/lib/waitlist";
-import type { DocumentCategory } from "@/types";
+import { letterFrequencyOptions } from "@/data/waitlist-options";
+import type { DocumentCategory, LetterFrequency } from "@/types";
 
 const VALID_CATEGORIES: DocumentCategory[] = [
   "Krankenkasse",
@@ -16,14 +17,25 @@ export async function POST(request: Request) {
     const body = (await request.json()) as {
       email?: string;
       documentInterest?: string;
+      letterFrequency?: string;
+      source?: string;
     };
 
     const email = body.email ?? "";
     const documentInterest = VALID_CATEGORIES.includes(body.documentInterest as DocumentCategory)
       ? (body.documentInterest as DocumentCategory)
       : undefined;
+    const letterFrequency = letterFrequencyOptions.includes(body.letterFrequency as LetterFrequency)
+      ? (body.letterFrequency as LetterFrequency)
+      : undefined;
+    const source = body.source?.trim().slice(0, 50) || undefined;
 
-    const result = await addToWaitlist(email, documentInterest);
+    const result = await addToWaitlist({
+      email,
+      documentInterest,
+      letterFrequency,
+      source,
+    });
 
     if (!result.success) {
       return NextResponse.json({ error: result.error }, { status: 400 });

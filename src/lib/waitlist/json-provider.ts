@@ -1,6 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
-import type { DocumentCategory } from "@/types";
+import type { WaitlistSignup } from "@/types";
 import type { AddToWaitlistResult } from "./types";
 import { validateWaitlistInput } from "./types";
 
@@ -10,7 +10,9 @@ const WAITLIST_FILE = path.join(DATA_DIR, "waitlist.json");
 interface JsonWaitlistEntry {
   id: string;
   email: string;
-  documentInterest?: DocumentCategory;
+  documentInterest?: WaitlistSignup["documentInterest"];
+  letterFrequency?: WaitlistSignup["letterFrequency"];
+  source?: string;
   createdAt: string;
 }
 
@@ -32,11 +34,8 @@ async function writeWaitlist(entries: JsonWaitlistEntry[]): Promise<void> {
   await fs.writeFile(WAITLIST_FILE, JSON.stringify(entries, null, 2), "utf-8");
 }
 
-export async function addToWaitlistJson(
-  email: string,
-  documentInterest?: DocumentCategory
-): Promise<AddToWaitlistResult> {
-  const validation = validateWaitlistInput(email);
+export async function addToWaitlistJson(signup: WaitlistSignup): Promise<AddToWaitlistResult> {
+  const validation = validateWaitlistInput(signup.email);
   if (!validation.ok) {
     return { success: false, error: validation.error };
   }
@@ -50,7 +49,9 @@ export async function addToWaitlistJson(
   const entry: JsonWaitlistEntry = {
     id: crypto.randomUUID(),
     email: validation.normalizedEmail,
-    documentInterest,
+    documentInterest: signup.documentInterest,
+    letterFrequency: signup.letterFrequency,
+    source: signup.source,
     createdAt: new Date().toISOString(),
   };
 
