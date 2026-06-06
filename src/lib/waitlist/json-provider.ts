@@ -24,15 +24,20 @@ async function ensureDataDir(): Promise<void> {
 async function readWaitlist(): Promise<JsonWaitlistEntry[]> {
   try {
     const content = await fs.readFile(WAITLIST_FILE, "utf-8");
-    return JSON.parse(content) as JsonWaitlistEntry[];
-  } catch {
+    const trimmed = content.trim();
+    if (!trimmed) return [];
+    return JSON.parse(trimmed) as JsonWaitlistEntry[];
+  } catch (error) {
+    console.error("Waitlist-Datei konnte nicht gelesen werden:", error);
     return [];
   }
 }
 
 async function writeWaitlist(entries: JsonWaitlistEntry[]): Promise<void> {
   await ensureDataDir();
-  await fs.writeFile(WAITLIST_FILE, JSON.stringify(entries, null, 2), "utf-8");
+  const tempFile = `${WAITLIST_FILE}.tmp`;
+  await fs.writeFile(tempFile, JSON.stringify(entries, null, 2), "utf-8");
+  await fs.rename(tempFile, WAITLIST_FILE);
 }
 
 export async function addToWaitlistJson(signup: WaitlistSignup): Promise<AddToWaitlistResult> {
