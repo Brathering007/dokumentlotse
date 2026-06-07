@@ -1,4 +1,7 @@
+import { CanvasFactory, getData } from "pdf-parse/worker";
 import { PDFParse } from "pdf-parse";
+
+PDFParse.setWorker(getData());
 
 const MIN_TEXT_LENGTH = 50;
 
@@ -20,7 +23,7 @@ export async function extractTextFromPdf(buffer: Buffer): Promise<string> {
   let parser: PDFParse | null = null;
 
   try {
-    parser = new PDFParse({ data: new Uint8Array(buffer) });
+    parser = new PDFParse({ data: new Uint8Array(buffer), CanvasFactory });
     const result = await parser.getText();
     const text = result.text?.replace(/\s+/g, " ").trim() ?? "";
 
@@ -43,6 +46,7 @@ export async function extractTextFromPdf(buffer: Buffer): Promise<string> {
     if (error instanceof PdfExtractionError) {
       throw error;
     }
+    console.error("PDF extraction failed:", error);
     throw new PdfExtractionError(
       "Die PDF-Datei konnte nicht gelesen werden. Möglicherweise ist sie beschädigt.",
       "corrupt"

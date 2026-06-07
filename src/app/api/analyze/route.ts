@@ -19,6 +19,19 @@ function errorResponse(message: string, status: number, code?: string) {
 }
 
 export async function POST(request: Request) {
+  try {
+    return await handleAnalyze(request);
+  } catch (error) {
+    console.error("Unhandled analyze error:", error);
+    return errorResponse(
+      "Die Analyse ist fehlgeschlagen. Bitte versuche es später erneut.",
+      500,
+      "internal_error"
+    );
+  }
+}
+
+async function handleAnalyze(request: Request) {
   const rateLimit = await checkDemoRateLimit();
   if (!rateLimit.allowed) {
     return errorResponse(
