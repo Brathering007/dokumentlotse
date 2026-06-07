@@ -1,5 +1,5 @@
 export const positioningStatement =
-  "Spezialisierte Verständnishilfe für Krankenkasse, Reha, Rentenversicherung, Erwerbsminderung und Arbeitsagentur – nicht für alle Dokumente der Welt.";
+  "DokumentenLotse konzentriert sich auf deutsche Sozialversicherungs-Briefe – Krankenkasse, Reha, Rentenversicherung, Erwerbsminderung und Arbeitsagentur. Bewusst spezialisiert, nicht als Allrounder.";
 
 export const specializationAreas = [
   "Krankenkasse",
@@ -20,37 +20,37 @@ export const chatGptDifferences: ChatGptDifference[] = [
     icon: "📬",
     title: "Fokus auf typische deutsche Sozialversicherungs-Post",
     description:
-      "ChatGPT kennt alles – DokumentenLotse konzentriert sich gezielt auf Bescheide von Krankenkasse, Rente, Reha, Erwerbsminderung und Arbeitsagentur.",
+      "ChatGPT ist ein Allrounder. DokumentenLotse konzentriert sich gezielt auf Bescheide von Krankenkasse, Rente, Reha, Erwerbsminderung und Arbeitsagentur.",
   },
   {
     icon: "🎯",
     title: "Spezialisiert statt allgemein",
     description:
-      "Wir bauen für genau diese Briefe: typische Formulierungen, Abläufe und Fristen – nicht für Steuerbescheide, Verträge oder Hausarbeit.",
+      "Wir bauen für genau diese Briefe: typische Formulierungen, Abläufe und Fristen – nicht für Steuerbescheide, Mietverträge oder allgemeine Verträge.",
   },
   {
     icon: "⏰",
-    title: "Fristen erkennen und hervorheben",
+    title: "Fristen strukturiert hervorheben",
     description:
-      "Geplant: Fristen werden automatisch erkannt und klar angezeigt – damit du sie nicht im Fließtext überliest.",
+      "Geplant: Fristen werden erkannt und klar angezeigt – damit du sie nicht im Fließtext überliest.",
   },
   {
     icon: "✅",
     title: "Geplante Aufgabenlisten",
     description:
-      "Nicht nur erklären, sondern zeigen: Was musst du als Nächstes tun? Welche Unterlagen brauchst du?",
+      "Nicht nur erklären, sondern strukturiert zeigen: Was könnte als Nächstes anstehen? Welche Unterlagen werden oft verlangt?",
   },
   {
     icon: "📁",
     title: "Geplante Dokumentenorganisation",
     description:
-      "Briefe strukturiert verstehen und vorbereiten – ohne jedes Mal neu zu erklären, worum es geht.",
+      "Briefe strukturiert verstehen und vorbereiten – ohne jedes Mal den Kontext neu setzen zu müssen.",
   },
   {
     icon: "👤",
     title: "Für Nicht-Techniker entwickelt",
     description:
-      "Große Schrift, einfache Sprache, wenige Schritte – ohne Prompt-Formulierung oder KI-Vorkenntnisse.",
+      "Große Schrift, einfache Sprache, wenige Schritte – ohne Prompt-Formulierung oder technische Vorkenntnisse.",
   },
 ];
 
@@ -99,7 +99,7 @@ export const typicalSituations: TypicalSituation[] = [
     description:
       "Das Datum steht irgendwo auf Seite 2. Du hast Angst, zu spät zu reagieren – und weißt nicht genau, was einzureichen ist.",
     area: "Alle Bereiche",
-    urgency: "Kritisch: Tage, nicht Wochen",
+    urgency: "Oft nur wenige Tage",
   },
 ];
 
@@ -128,8 +128,9 @@ export const commonChallenges: CommonChallenge[] = [
   },
   {
     id: "4",
-    challenge: "ChatGPT hilft – aber ich weiß nicht, ob die Erklärung für meinen Bescheid stimmt.",
-    context: "Allgemeine KI vs. spezialisierte Hilfe",
+    challenge:
+      "Mit ChatGPT bekomme ich oft eine Erklärung – trotzdem bin ich unsicher, ob alles zum Bescheid passt und was der nächste Schritt ist.",
+    context: "Allrounder vs. Spezialisierung",
   },
   {
     id: "5",

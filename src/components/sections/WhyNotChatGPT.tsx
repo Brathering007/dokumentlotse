@@ -6,8 +6,8 @@ export function WhyNotChatGPT() {
   return (
     <Section id="warum-nicht-chatgpt" background="white">
       <SectionHeader
-        title="Warum nicht einfach ChatGPT?"
-        subtitle="ChatGPT ist vielseitig – DokumentenLotse ist bewusst spezialisiert. Beides kann sinnvoll sein, aber für deutsche Sozialversicherungs-Briefe braucht es mehr als eine allgemeine Zusammenfassung."
+        title="Spezialisiert statt Allrounder"
+        subtitle="ChatGPT ist vielseitig und kann viele Texte erklären. DokumentenLotse konzentriert sich bewusst auf deutsche Sozialversicherungs-Briefe – mit Struktur, Fristen und typischen Abläufen im Mittelpunkt."
       />
 
       <p className="mb-8 rounded-xl border border-navy-200 bg-navy-50 px-4 py-3 text-center text-sm font-medium text-navy-800 sm:text-base">

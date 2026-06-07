@@ -9,49 +9,49 @@ export const comparisonRows: ComparisonRow[] = [
   {
     feature: "Spezialisierung",
     dokumentenlotse: "Krankenkasse, Rente, Reha, Arbeitsagentur, Erwerbsminderung",
-    typical: "Allgemeine Dokumenten-KI oder ChatGPT",
+    typical: "Allrounder (z. B. ChatGPT)",
     highlight: true,
   },
   {
     feature: "Einfache Sprache",
-    dokumentenlotse: "Kernfunktion – kein Behördendeutsch",
-    typical: "Oft Fachbegriffe bleiben erhalten",
+    dokumentenlotse: "Geplant als Kernfunktion – in einfache Sprache",
+    typical: "Möglich, hängt von Formulierung und Kontext ab",
     highlight: true,
   },
   {
-    feature: "Fristen erkennen",
-    dokumentenlotse: "Fristen hervorgehoben und erklärt",
-    typical: "ChatGPT erkennt Fristen nicht zuverlässig",
+    feature: "Fristen hervorheben",
+    dokumentenlotse: "Geplant: Fristen strukturiert anzeigen und erklären",
+    typical: "Im Dialog möglich, aber ohne festes Format",
     highlight: true,
   },
   {
     feature: "Aufgabenlisten",
-    dokumentenlotse: "Geplant: Was du als Nächstes tun musst",
-    typical: "Selbst aus Text ableiten",
+    dokumentenlotse: "Geplant: Nächste Schritte strukturiert aufbereiten",
+    typical: "Im Dialog möglich, Ergebnis variiert",
     highlight: true,
   },
   {
     feature: "Zettel / Angehörige fragen",
-    dokumentenlotse: "Sofort verfügbar, jederzeit wiederholbar",
+    dokumentenlotse: "Geplant: jederzeit abrufbar, ohne andere zu belasten",
     typical: "Zeitaufwendig, nicht immer verfügbar",
   },
   {
     feature: "Familienmodus",
     dokumentenlotse: "Geplant für Angehörige",
-    typical: "Nicht vorgesehen",
+    typical: "Kein dedizierter Modus",
     highlight: true,
   },
   {
     feature: "Rechtsberatung",
     dokumentenlotse: "Nein – transparent als Verständnishilfe",
-    typical: "Unklar oder irreführend",
+    typical: "Keine Rechtsberatung – Hinweise variieren je nach Anbieter",
   },
   {
     feature: "Datenschutz",
-    dokumentenlotse: "EU-Hosting, minimale Speicherung geplant",
-    typical: "US-Server, unklare Speicherfristen",
+    dokumentenlotse: "EU-Hosting und minimale Speicherung geplant",
+    typical: "Anbieterabhängig (z. B. ChatGPT: US-Anbieter, eigene Richtlinien)",
   },
 ];
 
 export const comparisonIntro =
-  "ChatGPT kann Texte zusammenfassen – DokumentenLotse wird gezielt für deutsche Sozialversicherungs-Briefe gebaut: mit Fristen, Aufgaben und Fokus statt Allzweck-KI.";
+  "Allgemeine KI wie ChatGPT kann Dokumente erklären. DokumentenLotse wird gezielt für deutsche Sozialversicherungs-Briefe konzipiert: typische Fristen, Abläufe und Dokumenttypen – strukturiert aufbereitet, ohne jedes Mal den Kontext neu zu setzen.";

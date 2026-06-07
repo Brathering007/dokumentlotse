@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { DemoAnalyze } from "@/components/sections/DemoAnalyze";
 import { WhyNotChatGPT } from "@/components/sections/WhyNotChatGPT";
 import { FamiliarSituations } from "@/components/sections/FamiliarSituations";
 import { TypicalSituations } from "@/components/sections/TypicalSituations";
@@ -27,6 +28,7 @@ export function LandingPage({ audience, showAudienceLinks = true }: LandingPageP
       <Header />
       <main>
         <Hero audience={audience} />
+        <DemoAnalyze />
         <WhyNotChatGPT />
         <FamiliarSituations />
         <TypicalSituations />

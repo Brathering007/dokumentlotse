@@ -5,7 +5,7 @@ const trustItems = [
   {
     icon: "🔒",
     title: "Datenschutz",
-    description: "DSGVO-konform, EU-Hosting geplant",
+    description: "DSGVO-konform geplant, EU-Hosting angestrebt",
   },
   {
     icon: "⚖️",
@@ -15,7 +15,7 @@ const trustItems = [
   {
     icon: "🛡️",
     title: "Sichere Verarbeitung",
-    description: "Dokumente nur so lange wie nötig",
+    description: "Geplant: Dokumente nur so lange wie nötig",
   },
   {
     icon: "👁️",

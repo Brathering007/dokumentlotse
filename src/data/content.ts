@@ -9,7 +9,7 @@ export const problemItems: ProblemItem[] = [
   {
     title: "Rentenversicherung & Erwerbsminderung",
     description:
-      "Bescheide voller Fachbegriffe. Ein Missverständnis kann teuer werden.",
+      "Bescheide voller Fachbegriffe. Missverständnisse können unangenehme Folgen haben.",
   },
   {
     title: "Reha-Verfahren",
@@ -32,18 +32,19 @@ export const solutionSteps: SolutionStep[] = [
   {
     step: 1,
     title: "Dokument hochladen",
-    description: "Foto oder PDF deines Briefes – einfach und schnell. (In der Vorschau: noch nicht aktiv)",
+    description: "PDF deines Briefes hochladen – im Demo-Modus direkt auf der Startseite testbar.",
   },
   {
     step: 2,
     title: "Spezialisierte Erklärung",
     description:
-      "Kein allgemeines KI-Tool – sondern Erklärungen für typische Bescheide von Krankenkasse, Rente, Reha und Arbeitsagentur.",
+      "Erklärungen für typische Bescheide von Krankenkasse, Rente, Reha und Arbeitsagentur – strukturiert aufbereitet, statt jedes Mal von vorn.",
   },
   {
     step: 3,
     title: "Fristen und wichtige Punkte verstehen",
-    description: "Termine, Aufgaben und Kernaussagen werden klar hervorgehoben.",
+    description:
+      "Geplant: Termine, Aufgaben und Kernaussagen werden klar hervorgehoben.",
   },
   {
     step: 4,

@@ -108,7 +108,14 @@ export function Waitlist({ defaultDocumentInterest, source }: WaitlistProps) {
             </div>
             <h3 className="text-xl font-bold text-navy-900">Danke – du bist dabei!</h3>
             <p className="mt-2 text-navy-600">{message}</p>
-            <Button variant="outline" className="mt-6" onClick={() => setStatus("idle")}>
+            <Button
+              variant="outline"
+              className="mt-6"
+              onClick={() => {
+                setStatus("idle");
+                hasTrackedStart.current = false;
+              }}
+            >
               Weitere E-Mail eintragen
             </Button>
           </div>

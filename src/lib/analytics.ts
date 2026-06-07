@@ -6,7 +6,10 @@ export type AnalyticsEventName =
   | "waitlist_success"
   | "waitlist_error"
   | "faq_open"
-  | "audience_page_view";
+  | "audience_page_view"
+  | "demo_analyze_start"
+  | "demo_analyze_success"
+  | "demo_analyze_error";
 
 export interface AnalyticsEvent {
   name: AnalyticsEventName;

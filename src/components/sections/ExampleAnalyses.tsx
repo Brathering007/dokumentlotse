@@ -18,11 +18,16 @@ export function ExampleAnalyses() {
       />
 
       <div className="mb-6 flex flex-wrap gap-2" role="tablist" aria-label="Beispielauswahl">
-        {exampleAnalyses.map((example) => (
+        {exampleAnalyses.map((example) => {
+          const tabId = `example-tab-${example.id}`;
+          const panelId = `example-panel-${example.id}`;
+          return (
           <button
             key={example.id}
+            id={tabId}
             role="tab"
             aria-selected={activeId === example.id}
+            aria-controls={panelId}
             onClick={() => setActiveId(example.id)}
             className={`rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
               activeId === example.id
@@ -32,9 +37,15 @@ export function ExampleAnalyses() {
           >
             {example.category}
           </button>
-        ))}
+          );
+        })}
       </div>
 
+      <div
+        id={`example-panel-${active.id}`}
+        role="tabpanel"
+        aria-labelledby={`example-tab-${active.id}`}
+      >
       <Card>
         <p className="text-sm font-semibold uppercase tracking-wide text-accent-700">
           {active.category}
@@ -70,6 +81,7 @@ export function ExampleAnalyses() {
           </div>
         </div>
       </Card>
+      </div>
 
       <Disclaimer className="mt-6" variant="banner" />
     </Section>

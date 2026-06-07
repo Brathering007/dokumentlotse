@@ -5,8 +5,8 @@ export function Solution() {
   return (
     <Section id="loesung" background="light">
       <SectionHeader
-        title="So soll DokumentenLotse helfen"
-        subtitle="Ein einfacher Ablauf – als Vorschau für die geplante App."
+        title="So funktioniert DokumentenLotse"
+        subtitle="Ein einfacher Ablauf – im Demo-Modus oben direkt testbar."
       />
       <ol className="space-y-6">
         {solutionSteps.map((step) => (
@@ -25,8 +25,8 @@ export function Solution() {
         ))}
       </ol>
       <p className="mt-8 rounded-xl border border-accent-200 bg-accent-50 px-4 py-3 text-sm text-accent-900">
-        <strong>Vorschau:</strong> Der Upload ist noch nicht aktiv. Aktuell testen wir das Interesse
-        an der Idee – du kannst dich kostenlos vormerken lassen.
+        <strong>Demo verfügbar:</strong> Lade oben ein PDF hoch und teste die Analyse kostenlos (1×
+        pro Tag). Für den vollen Start kannst du dich in die Warteliste eintragen.
       </p>
     </Section>
   );

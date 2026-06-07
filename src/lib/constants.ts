@@ -3,4 +3,4 @@ export const DISCLAIMER =
 
 export const SITE_NAME = "DokumentenLotse";
 export const SITE_DESCRIPTION =
-  "Spezialisierte Verständnishilfe für Krankenkasse, Reha, Rentenversicherung, Erwerbsminderung und Arbeitsagentur – nicht für alle Dokumente, bewusst fokussiert statt allgemeiner KI.";
+  "Spezialisierte Verständnishilfe für Krankenkasse, Reha, Rentenversicherung, Erwerbsminderung und Arbeitsagentur – bewusst fokussiert auf deutsche Sozialversicherungs-Briefe.";

@@ -13,7 +13,7 @@ interface HeroProps {
 export function Hero({ audience }: HeroProps) {
   const headline = audience?.headline ?? defaultHeroCopy.headline;
   const subheadline = audience?.subheadline ?? defaultHeroCopy.subheadline;
-  const badge = audience?.badge ?? "Spezialisierte Verständnishilfe – kein ChatGPT-Ersatz";
+  const badge = audience?.badge ?? "Spezialisiert auf Sozialversicherungs-Briefe";
   const source = audience?.slug ?? "general";
 
   return (
@@ -53,6 +53,11 @@ export function Hero({ audience }: HeroProps) {
             </div>
 
             <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row lg:justify-start">
+              <Link href="#demo">
+                <Button variant="secondary" size="md">
+                  Jetzt testen
+                </Button>
+              </Link>
               <Link href="#beispiele">
                 <Button variant="outline" size="md">
                   Beispiele ansehen

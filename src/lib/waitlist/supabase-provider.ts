@@ -24,7 +24,16 @@ export async function addToWaitlistSupabase(signup: WaitlistSignup): Promise<Add
     return { success: false, error: validation.error };
   }
 
-  const supabase = getSupabaseAdmin();
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch (error) {
+    console.error("Supabase ist nicht konfiguriert:", error);
+    return {
+      success: false,
+      error: "Warteliste ist derzeit nicht verfügbar. Bitte versuche es später erneut.",
+    };
+  }
 
   const { data, error } = await supabase
     .from("waitlist")
@@ -57,7 +66,14 @@ export async function addToWaitlistSupabase(signup: WaitlistSignup): Promise<Add
 }
 
 export async function getWaitlistCountSupabase(): Promise<number> {
-  const supabase = getSupabaseAdmin();
+  let supabase;
+  try {
+    supabase = getSupabaseAdmin();
+  } catch (error) {
+    console.error("Supabase ist nicht konfiguriert:", error);
+    return 0;
+  }
+
   const { count, error } = await supabase
     .from("waitlist")
     .select("*", { count: "exact", head: true });

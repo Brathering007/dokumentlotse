@@ -7,6 +7,22 @@ import { validateWaitlistInput } from "./types";
 const DATA_DIR = path.join(process.cwd(), "data");
 const WAITLIST_FILE = path.join(DATA_DIR, "waitlist.json");
 
+let writeLock: Promise<void> = Promise.resolve();
+
+async function withWriteLock<T>(operation: () => Promise<T>): Promise<T> {
+  const previous = writeLock;
+  let release!: () => void;
+  writeLock = new Promise((resolve) => {
+    release = resolve;
+  });
+  await previous;
+  try {
+    return await operation();
+  } finally {
+    release();
+  }
+}
+
 interface JsonWaitlistEntry {
   id: string;
   email: string;
@@ -46,29 +62,39 @@ export async function addToWaitlistJson(signup: WaitlistSignup): Promise<AddToWa
     return { success: false, error: validation.error };
   }
 
-  const entries = await readWaitlist();
+  try {
+    return await withWriteLock(async () => {
+      const entries = await readWaitlist();
 
-  if (entries.some((entry) => entry.email === validation.normalizedEmail)) {
-    return { success: false, error: "Diese E-Mail-Adresse ist bereits vorgemerkt." };
+      if (entries.some((entry) => entry.email === validation.normalizedEmail)) {
+        return { success: false, error: "Diese E-Mail-Adresse ist bereits vorgemerkt." };
+      }
+
+      const entry: JsonWaitlistEntry = {
+        id: crypto.randomUUID(),
+        email: validation.normalizedEmail,
+        documentInterest: signup.documentInterest,
+        letterFrequency: signup.letterFrequency,
+        paymentWillingness: signup.paymentWillingness,
+        source: signup.source,
+        createdAt: new Date().toISOString(),
+      };
+
+      entries.push(entry);
+      await writeWaitlist(entries);
+
+      return {
+        success: true,
+        entry: { id: entry.id, email: entry.email, createdAt: entry.createdAt },
+      };
+    });
+  } catch (error) {
+    console.error("Waitlist konnte nicht gespeichert werden:", error);
+    return {
+      success: false,
+      error: "Speichern fehlgeschlagen. Bitte versuche es später erneut.",
+    };
   }
-
-  const entry: JsonWaitlistEntry = {
-    id: crypto.randomUUID(),
-    email: validation.normalizedEmail,
-    documentInterest: signup.documentInterest,
-    letterFrequency: signup.letterFrequency,
-    paymentWillingness: signup.paymentWillingness,
-    source: signup.source,
-    createdAt: new Date().toISOString(),
-  };
-
-  entries.push(entry);
-  await writeWaitlist(entries);
-
-  return {
-    success: true,
-    entry: { id: entry.id, email: entry.email, createdAt: entry.createdAt },
-  };
 }
 
 export async function getWaitlistCountJson(): Promise<number> {

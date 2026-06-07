@@ -32,17 +32,17 @@ export const faqItems: FaqItem[] = [
   {
     question: "Warum nicht einfach ChatGPT?",
     answer:
-      "Allgemeine KI kennt nicht die typischen Fristen, Formulierungen und Abläufe bei Krankenkasse, Rente oder Reha. DokumentenLotse soll spezialisiert erklären – mit Fokus auf deutsche Sozialversicherungsbriefe.",
+      "ChatGPT und andere KI-Systeme können Bescheide oft erklären – das ist hilfreich. DokumentenLotse soll diese Art von Brief gezielt aufbereiten: typische Fristen, Abläufe und Dokumenttypen aus Krankenkasse, Reha, Rentenversicherung und Arbeitsagentur – strukturiert und ohne jedes Mal den Kontext neu zu setzen.",
   },
   {
     question: "Wie funktioniert DokumentenLotse?",
     answer:
-      "Geplant: Du lädst ein Foto oder PDF hoch. DokumentenLotse erklärt den Inhalt in einfacher Sprache und hebt Fristen sowie Aufgaben hervor. Aktuell ist das eine Vorschau – die App ist in Entwicklung.",
+      "Im Demo-Modus auf der Startseite lädst du ein PDF hoch. DokumentenLotse erklärt den Inhalt in einfacher Sprache und hebt Fristen sowie Aufgaben hervor. Die vollständige App ist noch in Entwicklung – der Demo-Modus zeigt das Kernversprechen.",
   },
   {
     question: "Ist meine E-Mail-Adresse sicher?",
     answer:
-      "Ja. Deine E-Mail wird nur für die Warteliste und Informationen zum Start verwendet. Du kannst deine Einwilligung jederzeit widerrufen. Details in der Datenschutzerklärung.",
+      "Wir verwenden deine E-Mail nur für die Warteliste und Informationen zum Start. Du kannst deine Einwilligung jederzeit widerrufen. Details findest du in der Datenschutzerklärung.",
   },
   {
     question: "Werden Daten in den USA gespeichert?",

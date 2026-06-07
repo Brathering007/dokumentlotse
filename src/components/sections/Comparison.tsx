@@ -7,7 +7,7 @@ export function Comparison() {
   return (
     <Section id="vergleich" background="light">
       <SectionHeader
-        title="DokumentenLotse vs. allgemeine KI"
+        title="Spezialisierung vs. Allrounder"
         subtitle={comparisonIntro}
       />
 
@@ -22,7 +22,7 @@ export function Comparison() {
                 DokumentenLotse
               </th>
               <th scope="col" className="px-4 py-3 font-semibold text-navy-600">
-                Typische Anbieter
+                Typische Allrounder (z. B. ChatGPT)
               </th>
             </tr>
           </thead>

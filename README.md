@@ -1,159 +1,136 @@
 # DokumentenLotse
 
-Landingpage zur Validierung der Geschäftsidee: Eine KI, die komplizierte Behörden-, Renten-, Krankenkassen-, Reha- und Versicherungsdokumente in einfache Sprache übersetzt.
+Landingpage und **MVP-Demo** zur Validierung der Geschäftsidee: Eine spezialisierte Verständnishilfe, die komplizierte Behörden-, Renten-, Krankenkassen-, Reha- und Versicherungsdokumente in einfache Sprache übersetzt.
 
-**Hinweis:** Dies ist ein MVP zur Ideenvalidierung – keine Rechtsberatung. DokumentenLotse dient ausschließlich als Verständnishilfe.
+**Hinweis:** Keine Rechtsberatung. DokumentenLotse dient ausschließlich als Verständnishilfe.
+
+## Kernfunktion (Demo-Modus)
+
+Besucher können auf der Startseite (`#demo`) ein **PDF hochladen** und erhalten eine strukturierte Analyse:
+
+- Worum geht es?
+- Wer hat das Schreiben verschickt?
+- Was wird verlangt?
+- Fristen
+- Nächste Schritte
+
+**Demo-Limits:** 1 Analyse pro Tag, max. 2 MB PDF.
+
+→ Ausführliche Dokumentation: [`docs/MVP-DEMO.md`](docs/MVP-DEMO.md)
 
 ## Tech-Stack
 
 - **Next.js 15** (App Router)
 - **TypeScript**
 - **Tailwind CSS 4**
+- **OpenAI API** (Demo-Analyse)
+- **pdf-parse** (PDF-Textextraktion)
 - **Supabase** (Warteliste in Produktion)
-- **Mobile First** – optimiert für Smartphone-Nutzung
+- **Mobile First**
 
 ## Schnellstart (lokal)
 
 ```bash
-# Abhängigkeiten installieren
 npm install
-
-# Optionale lokale Env-Datei (kopieren und anpassen)
 cp .env.example .env.local
-
-# Entwicklungsserver starten
+# OPENAI_API_KEY und optional Supabase-Keys eintragen
 npm run dev
 ```
 
 Die App läuft unter [http://localhost:3000](http://localhost:3000).
 
-**Lokal ohne Supabase:** Wartelisten-Einträge werden in `data/waitlist.json` gespeichert (automatischer Fallback).
+**Demo testen:** [http://localhost:3000/#demo](http://localhost:3000/#demo)
+
+**Lokal ohne Supabase:** Wartelisten-Einträge werden in `data/waitlist.json` gespeichert.
 
 ## Environment Variables
 
-| Variable | Pflicht (Prod) | Beschreibung |
+| Variable | Pflicht (Demo) | Beschreibung |
 |----------|----------------|--------------|
+| `OPENAI_API_KEY` | **Ja** | OpenAI API Key (nur serverseitig!) |
+| `OPENAI_MODEL` | Nein | Standard: `gpt-4o-mini` |
 | `WAITLIST_PROVIDER` | Empfohlen | `supabase` oder `json` |
-| `NEXT_PUBLIC_SUPABASE_URL` | Ja (Prod) | Supabase-Projekt-URL |
-| `SUPABASE_SERVICE_ROLE_KEY` | Ja (Prod) | Service Role Key (nur serverseitig!) |
+| `NEXT_PUBLIC_SUPABASE_URL` | Prod | Supabase-Projekt-URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | Prod | Service Role Key (nur serverseitig!) |
 
-Kopiere `.env.example` nach `.env.local` für lokale Entwicklung.
+> **Wichtig:** `OPENAI_API_KEY` und `SUPABASE_SERVICE_ROLE_KEY` niemals im Client-Code oder Git speichern.
 
-> **Wichtig:** Den `SUPABASE_SERVICE_ROLE_KEY` niemals im Client-Code oder im Git-Repository speichern. Nur in Vercel Environment Variables setzen.
+## Beispiel-PDFs erzeugen
 
-## Warteliste einrichten (Supabase – empfohlen für Produktion)
+```bash
+npm run generate-samples
+```
 
-1. Kostenloses Konto auf [supabase.com](https://supabase.com) erstellen
-2. Neues Projekt anlegen (Region: EU, z. B. Frankfurt)
-3. Im **SQL Editor** die Datei `supabase/schema.sql` ausführen
-4. Unter **Settings → API** URL und **service_role** Key kopieren
-5. In Vercel (oder `.env.local`) die Env-Variablen setzen:
-   ```
-   WAITLIST_PROVIDER=supabase
-   NEXT_PUBLIC_SUPABASE_URL=https://xxx.supabase.co
-   SUPABASE_SERVICE_ROLE_KEY=eyJ...
-   ```
+Erzeugt 3 Test-Briefe unter `public/samples/` (Krankenkasse, Rentenversicherung, Arbeitsagentur).
 
-Einträge einsehen: Supabase → **Table Editor** → `waitlist`
+## Warteliste einrichten (Supabase)
 
-### Alternative Speicher-Optionen (Überblick)
-
-| Option | Vorteil | Nachteil |
-|--------|---------|----------|
-| **Supabase** ✅ | Robust, EU-Hosting, skaliert, einfache API | Einmalige Einrichtung |
-| **Airtable** | Tabellen-UI ohne Code | API-Limits, weniger „production-ready“ |
-| **Google Sheets** | Bekannte Oberfläche | OAuth/Service-Account umständlich |
-| **Mailchimp/Resend** | Gut für E-Mail-Versand | Kein vollwertiger Datenspeicher |
-
-**Empfehlung für MVP:** Supabase – kostenlos, in 15 Minuten eingerichtet, funktioniert zuverlässig mit Vercel.
+1. Konto auf [supabase.com](https://supabase.com) erstellen
+2. Projekt anlegen (Region: EU)
+3. `supabase/schema.sql` im SQL Editor ausführen
+4. Env-Variablen setzen (siehe `.env.example`)
 
 ## Deployment auf Vercel
 
-### Voraussetzungen
-
-- GitHub/GitLab/Bitbucket-Repository mit dem Projekt
-- Supabase-Projekt mit Wartelisten-Tabelle (siehe oben)
-- Impressum-Platzhalter ausgefüllt (Pflicht vor öffentlichem Start in DE)
-
-### Schritte
-
-1. **Build lokal prüfen**
-   ```bash
-   npm run build
-   ```
-
-2. **Bei [vercel.com](https://vercel.com) anmelden** und „Add New Project“ wählen
-
-3. **Repository importieren** – Vercel erkennt Next.js automatisch
-
-4. **Environment Variables** setzen (Settings → Environment Variables):
-   - `WAITLIST_PROVIDER` = `supabase`
-   - `NEXT_PUBLIC_SUPABASE_URL` = deine Supabase-URL
-   - `SUPABASE_SERVICE_ROLE_KEY` = dein Service Role Key
-
-5. **Deploy** – nach dem ersten Deploy ist die Seite unter `*.vercel.app` erreichbar
-
-6. **Custom Domain** (optional): Vercel → Project → Domains
-
-### Nach dem Deployment prüfen
-
-- [ ] Startseite lädt korrekt
-- [ ] `/impressum`, `/datenschutz`, `/kontakt` erreichbar
-- [ ] Wartelisten-Formular speichert Eintrag in Supabase
-- [ ] Footer-Links funktionieren
+1. `npm run build` lokal prüfen
+2. Repository bei [vercel.com](https://vercel.com) importieren
+3. Environment Variables setzen:
+   - `OPENAI_API_KEY`
+   - `WAITLIST_PROVIDER`, `NEXT_PUBLIC_SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`
+4. Deploy
 
 ## Projektstruktur
 
 ```
 src/
 ├── app/
-│   ├── api/waitlist/       # Wartelisten-API (POST)
-│   ├── impressum/          # Impressum
-│   ├── datenschutz/        # Datenschutzerklärung (Entwurf)
-│   ├── kontakt/            # Kontakt
-│   ├── globals.css
-│   ├── layout.tsx
-│   └── page.tsx            # Landingpage
+│   ├── api/
+│   │   ├── analyze/        # Demo-Analyse (POST, PDF)
+│   │   └── waitlist/       # Wartelisten-API
+│   ├── impressum/
+│   ├── datenschutz/
+│   ├── kontakt/
+│   └── page.tsx
 ├── components/
-│   ├── layout/             # Header, Footer, LegalPageLayout
-│   ├── sections/           # Hero, Problem, Lösung, Beispiele, etc.
-│   └── ui/                 # Button, Card, Section, Disclaimer
-├── data/                   # Demo-Texte & Beispielanalysen
+│   ├── sections/
+│   │   ├── DemoAnalyze.tsx      # Upload & Demo-UI
+│   │   ├── AnalysisResult.tsx   # Analyse-Ergebnis
+│   │   └── ...
+│   └── ui/
 ├── lib/
-│   ├── constants.ts
-│   └── waitlist/           # JSON (lokal) + Supabase (Prod)
-└── types/
-supabase/
-└── schema.sql              # Datenbank-Schema für Warteliste
+│   ├── analysis/           # PDF, OpenAI, Rate-Limit
+│   └── waitlist/
+├── data/
+public/
+└── samples/                # Beispiel-PDFs
+docs/
+└── MVP-DEMO.md
 ```
 
 ## API
 
-**Endpunkt:** `POST /api/waitlist`
+### `POST /api/analyze`
 
-```json
-{
-  "email": "beispiel@email.de",
-  "documentInterest": "Krankenkasse"
-}
+Multipart-Upload mit Feld `file` (PDF).
+
+```bash
+curl -X POST http://localhost:3000/api/analyze -F "file=@public/samples/krankenkasse.pdf"
 ```
 
-Mögliche Werte für `documentInterest` (optional): Krankenkasse, Arbeitsagentur, Rentenversicherung, Reha, Versicherung, Sonstiges.
+### `POST /api/waitlist`
+
+```json
+{ "email": "beispiel@email.de", "documentInterest": "Krankenkasse" }
+```
 
 ## Rechtlicher Hinweis
 
-> Keine Rechtsberatung. DokumentenLotse dient ausschließlich als Verständnishilfe und ersetzt keine professionelle Beratung.
+> Keine Rechtsberatung. DokumentenLotse dient ausschließlich als Verständnishilfe.
 
-**Vor der öffentlichen Testphase:**
-- Impressum-Platzhalter mit echten Daten ersetzen
-- Datenschutzerklärung rechtlich prüfen lassen
+**Vor öffentlichem Start:**
+- Impressum mit echten Daten ausfüllen
+- Datenschutzerklärung prüfen (Hinweis auf Dokumenten-Upload/OpenAI)
 - Kontakt-E-Mail anpassen
-
-## Nächste Schritte (nach Validierung)
-
-- Willkommens-E-Mail via Resend bei Wartelisten-Anmeldung
-- Analytics (datenschutzkonform, z. B. Plausible)
-- Echte Dokumenten-Upload-Funktion entwickeln
 
 ## Lizenz
 
